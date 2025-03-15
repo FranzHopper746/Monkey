@@ -53,25 +53,6 @@ func New(l *lexer.Lexer) *Parser {
 	return p
 }
 
-var depth int
-
-func trace(name string) string {
-	for i := 0; i < depth; i++ {
-		fmt.Print("\t")
-	}
-	fmt.Printf("BEGIN %s\n", name)
-	depth++
-	return name
-}
-
-func untrace(name string) {
-	for i := 0; i < depth-1; i++ {
-		fmt.Print("\t")
-	}
-	fmt.Printf("END %s\n", name)
-	depth--
-}
-
 func (p *Parser) Errors() []string {
 	return p.errors
 }
